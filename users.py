@@ -98,7 +98,7 @@ def remaining_wait_time(username, user_ip_address):
             action_type = constants.IPADDRESS_BLOCKED
             create_log(domain, action_type, None, None, None, None, None, None,
                         None, None, system_user_id, user_ip_address)
-        return {'errorMessage': 'Account is locked. Please contact the OSI Help Desk.'}, 423
+        return {'errorMessage': 'Account is locked. Please contact the Help Desk.'}, 423
     
     if user.consecutive_failed_login_cnt > 0:
         elapsed_time = timezone.now() - user.last_login_failed_at
@@ -143,7 +143,7 @@ def wait_time(username, user_ip_address):
     user_wait_time = {1: 1, 2: 2, 3: 4, 4: 8, 5: 20}
     if user.consecutive_failed_login_cnt > 5:
         resp = {'errorMessage': \
-                'Account is locked. Please contact the OSI Help Desk.'}
+                'Account is locked. Please contact the Help Desk.'}
         domain = constants.USER_DOMAIN
         action_type = constants.USER_LOCKED
         create_log(domain, action_type, user.id, user.username, None, None, None, None, 
